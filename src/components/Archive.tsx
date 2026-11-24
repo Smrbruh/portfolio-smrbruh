@@ -6,7 +6,7 @@ import { projects, educationalRepos, type Project } from "@/lib/projects";
 import { Artwork } from "./Artwork";
 import { GlassScene } from "glassy-liquid/react";
 import { OrbitBackdrop } from "./OrbitBackdrop";
-import { LensButton, LensBar, AdaptiveLensBar } from "./LiquidGlass";
+import { LensBar, AdaptiveLensBar } from "./LiquidGlass";
 import { repositoryMedia } from "@/lib/project-media";
 import Image from "next/image";
 
@@ -291,20 +291,6 @@ function ProjectPreview({
 export function Archive() {
   const root = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState("top");
-  const [inOrbit, setInOrbit] = useState(false);
-  useEffect(() => {
-    const enter = () => setInOrbit(true);
-    let frame = 0;
-    try {
-      if (sessionStorage.getItem("smrbruh-intro") === "complete")
-        frame = requestAnimationFrame(enter);
-    } catch {}
-    window.addEventListener("launch-complete", enter);
-    return () => {
-      cancelAnimationFrame(frame);
-      window.removeEventListener("launch-complete", enter);
-    };
-  }, []);
   const [menu, setMenu] = useState(false);
   const [filter, setFilter] = useState("All work");
   const [selected, setSelected] = useState<Project | null>(null);
@@ -433,7 +419,7 @@ export function Archive() {
       <main>
         <section id="top" className="editorial-hero">
           <GlassScene backdrop=".hero-scene video" className="hero-scene">
-            <OrbitBackdrop inOrbit={inOrbit} />
+            <OrbitBackdrop />
             <div className="hero-scrim" />
             <div className="hero-kicker">
               <span>Bakdaulet Sotsial / Portfolio</span>
@@ -453,13 +439,6 @@ export function Archive() {
                 Applied Research.
               </p>
               <div className="hero-actions">
-                <LensButton
-                  onClick={() =>
-                    window.dispatchEvent(new Event("replay-launch"))
-                  }
-                >
-                  Initiate Launch <span aria-hidden="true">+</span>
-                </LensButton>
                 <a href="#missions">Explore Work</a>
               </div>
               <span className="hero-footnote">

@@ -32,3 +32,7 @@ The production output and no-JavaScript HTML are checked as part of the final bu
 - With the hero edge inside the open panel, dark and light optical layers are clipped to the actual edge. Text contrast follows the same edge independently for each control. No whole-header appearance toggle remains.
 - Mobile Work link closes the menu and navigates. No browser errors observed.
 - Native iOS/Instagram WebView remains untested; Chromium mobile viewport was checked.
+
+## Ambient hero revision
+
+The page no longer mounts Launch. Chromium confirms no intro dialog or Initiate Launch button, heading opacity 1, and a playing, looping 20-second orbital video. The orbital source plays forward then backward to return to its first frame without a hard loop cut. Prior launch checks above describe the historical implementation, not the current page flow.

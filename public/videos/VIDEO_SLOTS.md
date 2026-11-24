@@ -12,3 +12,7 @@ The supplied files in smrbruh-assets/gemini-videos are cumulative extensions:
 | orbit-loop.mp4 | gemini_generated_video_6445bbd5.mp4 | 30-40 s |
 
 Encoded with libx264 CRF 20, yuv420p, faststart, no audio. Idle continues through arming/countdown. Launch and ascent advance on ended, not hardcoded durations. Idle and orbit loop. Playback errors and a five-second progress watchdog recover automatically. A 60-second safety ceiling handles malformed media. Regenerate the manifest after changing available files.
+
+## Current page flow
+
+Only orbit-loop is used by the current page. The launch intro has been removed from the page. The orbital segment is now forward/reverse (20 seconds total), producing a continuous return to its starting frame. The heading and content are independent of playback and stay visible. Earlier slots remain in the repository for provenance.

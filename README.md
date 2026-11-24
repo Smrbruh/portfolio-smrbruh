@@ -13,7 +13,7 @@ npm install
 npm run dev
 ```
 
-Open http://localhost:3000. First visits show the launchpad introduction. Initiate Launch starts the film; Skip Intro and Escape immediately leave it. Completion is remembered per browser session. Returning visitors can browse normally and replay from the hero.
+Open http://localhost:3000. The portfolio is immediately available. An orbital video loops behind the persistent hero heading; there is no intro, countdown, launch button, or session-based reveal.
 
 ```sh
 npm run lint
@@ -71,3 +71,5 @@ All supplied cinematic artwork is identified as concept imagery. Real InkMath an
 No employment, certification, awards, usage or performance metrics are invented. No résumé PDF was supplied; Request a copy opens the actual Telegram contact. GitHub star counts are fetched from GitHub and cached for one hour. On failure, the last actual snapshot remains, or the repository link appears without a fabricated number.
 
 See `VERIFICATION.md` for checks and explicit testing limitations. GitHub Actions runs lint, typecheck, state-machine tests and the production build on pushes to main and pull requests.
+
+The former launch orchestrator is retained as unused source only; it is not mounted or shipped as part of the page. The active hero uses only orbit-loop.mp4.

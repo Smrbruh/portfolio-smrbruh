@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import { OptionalVideo } from "./OptionalVideo";
 /** Optional orbital ambience loads only while the hero is visible. */
-export function OrbitBackdrop({ inOrbit = true }: { inOrbit?: boolean }) {
+export function OrbitBackdrop() {
   const anchor = useRef<HTMLDivElement>(null);
   const [available, setAvailable] = useState<string[]>([]);
   const [visible, setVisible] = useState(false);
@@ -37,8 +37,7 @@ export function OrbitBackdrop({ inOrbit = true }: { inOrbit?: boolean }) {
     <div className="orbit-video-layer" ref={anchor}>
       {visible && !reduced && (
         <OptionalVideo
-          key={inOrbit ? "orbit-loop" : "idle-launchpad"}
-          slot={inOrbit ? "orbit-loop" : "idle-launchpad"}
+          slot="orbit-loop"
           available={available}
           loop
         />
