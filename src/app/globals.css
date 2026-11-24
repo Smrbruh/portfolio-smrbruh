@@ -2214,3 +2214,11 @@ footer > a:last-child {
   .adaptive-content :is(a, button, .nav-descriptor) { color: ButtonText; -webkit-text-fill-color: ButtonText; background: none; }
   .adaptive-lens { background: Canvas; border: 1px solid ButtonText; }
 }
+
+/* Keep ambient media below every editorial element, including its own video z-index. */
+.hero-scene { isolation: isolate; }
+.orbit-video-layer { z-index: 0; pointer-events: none; }
+.hero-scrim { z-index: 1; }
+.hero-scene > .hero-kicker,
+.hero-scene > h1,
+.hero-scene > .hero-bottom { z-index: 2; }
