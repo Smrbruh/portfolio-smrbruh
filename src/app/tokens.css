@@ -1,0 +1,18 @@
+:root {
+  --paper: #f5f5f3;
+  --surface: #ffffff;
+  --ink: #111214;
+  --muted: #707176;
+  --night: #101114;
+  --night-surface: #1b1c20;
+  --light: #f4f4f2;
+  --night-muted: #9a9ca3;
+  --accent: #5179b8;
+  --hairline: #11121426;
+  --gutter: clamp(24px, 5.2vw, 100px);
+  --max-width: 1560px;
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --glass-accent: #5179b8;
+  --glass-font: "Geist Variable", Arial, sans-serif;
+  --glass-focus: #5179b8;
+}
