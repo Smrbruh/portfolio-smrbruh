@@ -40,6 +40,8 @@ export function videoSlot(state: LaunchState): string | null {
     (
       {
         idle: "idle-launchpad",
+        arming: "idle-launchpad",
+        countdown: "idle-launchpad",
         launch: "ignition-launch",
         ascent: "ascent-to-orbit",
         orbit: "orbit-loop",

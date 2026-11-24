@@ -53,5 +53,6 @@ test("only contracted media slots are selected", () => {
   assert.equal(videoSlot("launch"), "ignition-launch");
   assert.equal(videoSlot("ascent"), "ascent-to-orbit");
   assert.equal(videoSlot("orbit"), "orbit-loop");
-  assert.equal(videoSlot("countdown"), null);
+  assert.equal(videoSlot("arming"), "idle-launchpad");
+  assert.equal(videoSlot("countdown"), "idle-launchpad");
 });

@@ -400,7 +400,7 @@ export function Archive() {
       </a>
       <header className={`floating-header ${onHero ? "over-image" : ""}`}>
         <GlassScene
-          backdrop={onHero ? "#home-art img" : undefined}
+          backdrop={onHero ? ".hero-scene video" : undefined}
           className="nav-scene"
         >
           <LensBar
@@ -449,23 +449,8 @@ export function Archive() {
       </header>
       <main>
         <section id="top" className="editorial-hero">
-          <GlassScene backdrop="#home-art img" className="hero-scene">
-            <div id="home-art" className="hero-art">
-              <Artwork
-                src={
-                  inOrbit
-                    ? "/assets/site/orbit-earth"
-                    : "/assets/site/launchpad"
-                }
-                alt={
-                  inOrbit
-                    ? "Earth’s horizon viewed from orbit"
-                    : "A silver spacecraft on a quiet launchpad beneath the night sky"
-                }
-                priority
-              />
-            </div>
-            {inOrbit && <OrbitBackdrop />}
+          <GlassScene backdrop=".hero-scene video" className="hero-scene">
+            <OrbitBackdrop inOrbit={inOrbit} />
             <div className="hero-scrim" />
             <div className="hero-kicker">
               <span>Bakdaulet Sotsial / Portfolio</span>

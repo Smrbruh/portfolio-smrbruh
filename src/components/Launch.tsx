@@ -6,7 +6,6 @@ import {
   fallbackDuration,
   videoSlot,
 } from "@/lib/launch-machine";
-import { Artwork } from "./Artwork";
 import { OptionalVideo } from "./OptionalVideo";
 import { GlassScene } from "glassy-liquid/react";
 import { LensButton, LensBar } from "./LiquidGlass";
@@ -148,28 +147,6 @@ export function Launch() {
     const ctx = gsap.context(() => {
       if (state === "arming")
         gsap.to(".launch-copy", { opacity: 0, y: -12, duration: 0.8 });
-      if (state === "launch")
-        gsap.to(".pad-art", {
-          scale: 1.08,
-          yPercent: -9,
-          transformOrigin: "76% 65%",
-          duration: 2.4,
-          ease: "power2.in",
-        });
-      if (state === "ascent")
-        gsap.to(".pad-art", {
-          scale: 1.15,
-          yPercent: 18,
-          opacity: 0,
-          duration: 2.4,
-          ease: "power2.inOut",
-        });
-      if (state === "orbit")
-        gsap.fromTo(
-          ".launch-earth",
-          { scale: 1.04, opacity: 0 },
-          { scale: 1, opacity: 1, duration: 1.2 },
-        );
     }, scene);
     return () => ctx.revert();
   }, [state, active, isDone]);
@@ -225,33 +202,15 @@ export function Launch() {
       data-state={state}
     >
       <GlassScene
-        backdrop={
-          readySlot === slot && failedSlot !== slot
-            ? ".launch-screen video"
-            : state === "orbit"
-              ? ".launch-screen .launch-earth img"
-              : ".launch-screen .pad-art img"
-        }
+        backdrop={readySlot === slot && failedSlot !== slot ? ".launch-screen video" : undefined}
         className="launch-glass-scene"
       >
-        <Artwork
-          src="/assets/site/launchpad"
-          alt="A silver spacecraft on a quiet launchpad beneath the night sky"
-          className="pad-art"
-          priority
-        />
-        <Artwork
-          src="/assets/site/orbit-earth"
-          alt=""
-          className="launch-earth"
-        />
         {slot && failedSlot !== slot && (
           <OptionalVideo
             key={slot}
             slot={slot}
             available={available}
-            poster={`/assets/site/${state === "orbit" ? "orbit-earth" : "launchpad"}.webp`}
-            loop={state === "idle" || state === "orbit"}
+            loop={slot === "idle-launchpad" || state === "orbit"}
             onComplete={finish}
             onReady={() => setReadySlot(slot)}
             onFailure={fail}

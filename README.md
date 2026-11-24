@@ -60,9 +60,9 @@ No MP4 is required. Add any subset of these files to `public/videos/`:
 
 Run `npm run build`, or `node scripts/media-manifest.mjs` while developing and then refresh. The generated manifest prevents missing clips from creating broken video tags. See `public/videos/VIDEO_SLOTS.md`.
 
-Loaded frames crossfade above their posters. Sequence clips advance on `ended`. A loading/playback error, rejected autoplay, or five seconds without progress switches to the animated image fallback. A 60-second safety ceiling prevents malformed clips from trapping a visitor; it is not normal timing. All video is muted and inline. Sound requires explicit opt-in and uses synthesized tones. Reduced-motion visitors bypass the sequence.
+Loaded video frames fade in over a dark background. Intro and hero have no photographic posters or image substitutes. Sequence clips advance on `ended`. A loading/playback error, rejected autoplay, or five seconds without progress switches to the dark-background timed fallback. A 60-second safety ceiling prevents malformed clips from trapping a visitor; it is not normal timing. All video is muted and inline. Sound requires explicit opt-in and uses synthesized tones. Reduced-motion visitors bypass the sequence.
 
-Supply browser-compatible H.264 MP4 with fast-start metadata. Final named Gemini clips were not supplied. The separate original `gemini-videos` folder contains unnamed clips, which were not assigned to slots by guessing.
+The supplied Gemini clips are included as four silent H.264 fast-start MP4s. They are cumulative extensions; distinct ten-second segments avoid restarting earlier footage. See VIDEO_SLOTS.md for provenance. Reduced motion disables ambient playback and retains the dark surface.
 
 ## Content integrity
 

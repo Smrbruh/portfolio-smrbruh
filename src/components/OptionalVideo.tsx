@@ -3,7 +3,6 @@ import { useEffect, useRef, useState } from "react";
 export function OptionalVideo({
   slot,
   available,
-  poster,
   loop = false,
   onComplete,
   onFailure,
@@ -11,7 +10,6 @@ export function OptionalVideo({
 }: {
   slot: string;
   available: string[];
-  poster: string;
   loop?: boolean;
   onComplete?: () => void;
   onFailure?: () => void;
@@ -57,7 +55,6 @@ export function OptionalVideo({
       ref={ref}
       className={`scene-video ${ready ? "is-ready" : ""}`}
       src={`/videos/${slot}.mp4`}
-      poster={poster}
       muted
       playsInline
       loop={loop}
