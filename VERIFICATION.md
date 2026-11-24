@@ -25,3 +25,10 @@ Validated on 24 November 2026 using Node.js 24 and the Chromium-based in-app bro
 - GitHub stars depend on the public API and its rate limits. Only actual API/cache values are displayed.
 
 The production output and no-JavaScript HTML are checked as part of the final build. GitHub Actions repeats lint, typecheck, tests and the production build for future changes.
+
+## Navigation correction
+
+- At 390px, expanded navigation uses numeric 24px optical radius rather than capsule geometry.
+- With the hero edge inside the open panel, dark and light optical layers are clipped to the actual edge. Text contrast follows the same edge independently for each control. No whole-header appearance toggle remains.
+- Mobile Work link closes the menu and navigates. No browser errors observed.
+- Native iOS/Instagram WebView remains untested; Chromium mobile viewport was checked.

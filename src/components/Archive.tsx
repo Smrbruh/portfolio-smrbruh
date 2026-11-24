@@ -6,7 +6,7 @@ import { projects, educationalRepos, type Project } from "@/lib/projects";
 import { Artwork } from "./Artwork";
 import { GlassScene } from "glassy-liquid/react";
 import { OrbitBackdrop } from "./OrbitBackdrop";
-import { LensButton, LensBar } from "./LiquidGlass";
+import { LensButton, LensBar, AdaptiveLensBar } from "./LiquidGlass";
 import { repositoryMedia } from "@/lib/project-media";
 import Image from "next/image";
 
@@ -291,7 +291,6 @@ function ProjectPreview({
 export function Archive() {
   const root = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState("top");
-  const [onHero, setOnHero] = useState(true);
   const [inOrbit, setInOrbit] = useState(false);
   useEffect(() => {
     const enter = () => setInOrbit(true);
@@ -363,16 +362,9 @@ export function Archive() {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
     });
-    const heroObserver = new IntersectionObserver(
-      (entries) => setOnHero(entries[0]?.isIntersecting ?? false),
-      { rootMargin: "-90px 0px 0px 0px" },
-    );
-    const hero = document.getElementById("top");
-    if (hero) heroObserver.observe(hero);
     return () => {
       mm.revert();
       observer.disconnect();
-      heroObserver.disconnect();
     };
   }, []);
   useEffect(() => {
@@ -398,15 +390,9 @@ export function Archive() {
       <a href="#missions" className="skip-link">
         Skip to selected work
       </a>
-      <header className={`floating-header ${onHero ? "over-image" : ""}`}>
-        <GlassScene
-          backdrop={onHero ? ".hero-scene video" : undefined}
-          className="nav-scene"
-        >
-          <LensBar
-            appearance={onHero ? "dark" : "light"}
-            className="navigation-lens"
-          >
+      <header className="floating-header">
+        <div className="nav-scene">
+          <AdaptiveLensBar className="navigation-lens">
             <a className="wordmark" href="#top" aria-label="SMRBRUH home">
               smrbruh<span>.</span>
             </a>
@@ -430,12 +416,9 @@ export function Archive() {
             >
               {menu ? "Close" : "Menu"}
             </button>
-          </LensBar>
+          </AdaptiveLensBar>
           {menu && (
-            <LensBar
-              appearance={onHero ? "dark" : "light"}
-              className="mobile-navigation-lens"
-            >
+            <AdaptiveLensBar panel className="mobile-navigation-lens">
               <nav id="mobile-navigation" aria-label="Mobile navigation">
                 {navigation.map(([id, label]) => (
                   <a key={id} href={`#${id}`} onClick={() => setMenu(false)}>
@@ -443,9 +426,9 @@ export function Archive() {
                   </a>
                 ))}
               </nav>
-            </LensBar>
+            </AdaptiveLensBar>
           )}
-        </GlassScene>
+        </div>
       </header>
       <main>
         <section id="top" className="editorial-hero">
