@@ -36,3 +36,7 @@ The production output and no-JavaScript HTML are checked as part of the final bu
 ## Ambient hero revision
 
 The page no longer mounts Launch. Chromium confirms no intro dialog or Initiate Launch button, heading opacity 1, and a playing, looping 20-second orbital video. The orbital source plays forward then backward to return to its first frame without a hard loop cut. Prior launch checks above describe the historical implementation, not the current page flow.
+
+## Continuous liquid navigation
+
+Navigation now uses one uncut optical surface. Ancestor clip paths and material shadows were removed, eliminating rectangular bounds and restoring backdrop sampling. A separate rounded tint follows the hero boundary. Chromium reports blur(14px) plus the library SVG displacement filter. The media scene is restored for Safari/iOS video refraction; native iOS remains untested. Mobile opening uses GSAP elastic scale with staggered links; closing remains mounted for its 220ms animation and becomes inert immediately. Reduced motion removes animation duration. Mobile open/close/Escape were checked.

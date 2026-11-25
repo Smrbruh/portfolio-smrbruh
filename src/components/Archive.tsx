@@ -403,8 +403,7 @@ export function Archive() {
               {menu ? "Close" : "Menu"}
             </button>
           </AdaptiveLensBar>
-          {menu && (
-            <AdaptiveLensBar panel className="mobile-navigation-lens">
+          <AdaptiveLensBar panel open={menu} className="mobile-navigation-lens">
               <nav id="mobile-navigation" aria-label="Mobile navigation">
                 {navigation.map(([id, label]) => (
                   <a key={id} href={`#${id}`} onClick={() => setMenu(false)}>
@@ -412,8 +411,7 @@ export function Archive() {
                   </a>
                 ))}
               </nav>
-            </AdaptiveLensBar>
-          )}
+          </AdaptiveLensBar>
         </div>
       </header>
       <main>
